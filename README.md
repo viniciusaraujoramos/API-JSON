@@ -5,4 +5,5 @@
   ### *gitignore para não upar as bibliotecas e não pesar o codigo
   ### *baixar a biblioteca toda vez já que o ignore não deixar ela subir
   ### *node (nome do arquivo.js que quero rodar)
+  ### *Node Package Manager) para instalar pacotes ou dependências em um projeto Node.js
   
