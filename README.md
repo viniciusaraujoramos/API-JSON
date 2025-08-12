@@ -6,4 +6,4 @@
   ### *baixar a biblioteca toda vez já que o ignore não deixar ela subir
   ### *node (nome do arquivo.js que quero rodar)
   ### *Node Package Manage para instalar pacotes ou dependências em um projeto Node.js
-  
+  ### *1234Vinicius
