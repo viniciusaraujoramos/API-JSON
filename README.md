@@ -7,3 +7,4 @@
   ### *node (nome do arquivo.js que quero rodar)
   ### *Node Package Manage para instalar pacotes ou dependências em um projeto Node.js
   ### *1234Vinicius
+  ### *usar dois prompts de comando para rodar a aplicação node e também o banco do prisma
