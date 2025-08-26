@@ -31,6 +31,42 @@ app.post('/cadastro', async (req,res)=>{
     res.status(201).json(req.body)
 })
 
+//ROTA PARA ATUALIZAR OS CLIENTES
+app.put('/cadastro/:id', async (req,res)=>{
+    
+    //console.log(req.params.id)
+
+    await prisma.usuario.update({
+        where:{
+            id: req.params.id
+        },
+        data:{
+            email: req.body.email, 
+            nome: req.body.nome,
+            idade: req.body.idade
+        }
+    })
+
+    res.status(201).json({"massage":"Cliente Atualizado"})
+
+})
+
+app.delete('/cadastro/:id', async (req,res)=>{
+    
+    //console.log(req.params.id)
+
+    await prisma.usuario.delete({
+        where:{
+            id: req.params.id
+        },
+
+    })
+
+    res.status(201).json({"massage":"Cliente Removido"})
+
+})
+
+
 //PORTA LOCAL DO SERVER
 app.listen(3000, ()=>{
     console.log("ESTA RODANDO")
