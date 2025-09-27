@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import { ObjectId } from 'mongodb';
 
 import pkg from '@prisma/client'
 const { PrismaClient } = pkg
@@ -34,24 +35,24 @@ app.post('/cadastro', async (req,res)=>{
 })
 
 //ROTA PARA ATUALIZAR OS CLIENTES
-app.put('/cadastro/:id', async (req,res)=>{
-    
-    //console.log(req.params.id)
-
+app.put('/cadastro/:id', async (req, res) => {
+  try {
     await prisma.usuario.update({
-        where:{
-            id: req.params.id
-        },
-        data:{
-            email: req.body.email, 
-            nome: req.body.nome,
-            idade: req.body.idade
-        }
-    })
+      where: {
+        id: new ObjectId(req.params.id) // se for Mongo
+      },
+      data: {
+        email: req.body.email,
+        nome: req.body.nome,
+        idade: req.body.idade
+      }
+    });
 
-    res.status(201).json({"massage":"Cliente Atualizado"})
-
-})
+    res.status(201).json({ message: 'Cliente Atualizado' });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao atualizar' });
+  }
+});
 
 app.delete('/cadastro/:id', async (req,res)=>{
     
